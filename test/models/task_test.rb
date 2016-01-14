@@ -21,4 +21,10 @@ class TaskTest < ActiveSupport::TestCase
     assert_not @task.valid?
   end
 
+  # TODO
+  # Add status default value test
+  # デフォルト値の確認テストの仕方が分からなかった。。。
+  # setupでstatusを消すとnilになってしまう。
+  # rails consoleで@taskを生成した場合はデフォルト0になっていたんだが。。。
+
 end
