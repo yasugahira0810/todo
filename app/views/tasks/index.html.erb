@@ -2,9 +2,10 @@
 <h1>All tasks</h1>
 
 <%#= will_paginate %>
-
 <ul class="tasks">
-  <%= render @tasks %>
+  <%= @task.name %>
+  <%= @task.content %>
+  <%= @task.status %>
 </ul>
 
 <%#= will_paginate %>
