@@ -13,4 +13,8 @@ class Task < ActiveRecord::Base
             'PENDING' => PENDING
     }.freeze
 
+    def status_name
+        STATUS.key(self.status)
+    end
+
 end
