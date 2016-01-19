@@ -1,7 +1,7 @@
-<li>
-  <%= task.id %>
-  <%= task.name %>
-  <%= task.content %>
-  <%= task.status_name %>
-  <%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-</li>
+<tr>
+  <th><%= task.id %></th>
+  <th><%= task.name %></th>
+  <th><%= task.content %></th>
+  <th><%= task.status_name %></th>
+  <th><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
+</tr>

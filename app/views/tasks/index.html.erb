@@ -3,8 +3,20 @@
 
 <%#= will_paginate %>
 
-<ul class="tasks">
-  <%= render @tasks %>
-</ul>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Status</th>
+      <th>Created Time</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      <%= render @tasks %>
+  </tbody>
+</table>
 
 <%#= will_paginate %>
