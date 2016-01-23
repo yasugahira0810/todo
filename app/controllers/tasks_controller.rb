@@ -13,12 +13,24 @@ class TasksController < ApplicationController
       # success
       flash[:info] = "Created new task!"
       redirect_to tasks_path
-      #log_in @user
-      #flash[:success] = "Welcome to the Sample App!"
-      #redirect_to @user
     else
       # failure
       render 'new'
+    end
+  end
+
+  def edit
+      @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update_attributes(task_params)
+      # Success
+      flash[:success] = "Task updated"
+      redirect_to tasks_path
+    else
+      render 'edit'
     end
   end
 
