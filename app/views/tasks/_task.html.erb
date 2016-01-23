@@ -4,6 +4,6 @@
   <th><%= task.content %></th>
   <th><%= task.status_name %></th>
   <th><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
-  <th><%= link_to 'edit', edit_task_path(task) %></th>
-  <th><%= link_to "Delete", '#', class: "btn btn-danger" %></th>
+  <th><%= link_to 'Edit', edit_task_path(task) %></th>
+  <th><%= link_to "delete", task, method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %></th>
 </tr>
