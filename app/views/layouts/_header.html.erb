@@ -13,9 +13,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "ALL Tasks",  tasks_path %></li>
-              <li><%= link_to "NOT YET Tasks", '#' %></li>
-              <li><%= link_to "PENDING Tasks",  '#' %></li>
-              <li><%= link_to "DONE Tasks", '#' %></li>
+              <li><%= link_to "NOT YET Tasks", tasks_path(:status => 'not_yet') %></li>
+              <li><%= link_to "PENDING Tasks", tasks_path(:status => 'pending') %></li>
+              <li><%= link_to "DONE Tasks", tasks_path(:status => 'done') %></li>
             </ul>
           </li>
           <li class="dropdown">

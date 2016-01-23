@@ -1,6 +1,18 @@
 class TasksController < ApplicationController
     def index
-            @tasks = Task.all
+      @tasks = Task.order('created_at DESC')
+      if @status = params[:status]
+        case @status
+        when 'not_yet'
+        @tasks = @tasks.status_is_not_yet
+        when 'pending'
+        @tasks = @tasks.status_is_pending
+        when 'done'
+        @tasks = @tasks.status_is_done
+        else
+          @status = nil
+          end
+      end
     end
 
     def new
