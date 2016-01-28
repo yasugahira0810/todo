@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     def index
-      @tasks = Task.order('created_at DESC')
+      @tasks = current_user.tasks.order('created_at DESC')
       if @status = params[:status]
         case @status
         when 'not_yet'
@@ -16,11 +16,11 @@ class TasksController < ApplicationController
     end
 
     def new
-            @task = Task.new
+            @task = current_user.tasks.new
     end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     if @task.save
       # success
       flash[:info] = "Created new task!"
@@ -32,11 +32,11 @@ class TasksController < ApplicationController
   end
 
   def edit
-      @task = Task.find(params[:id])
+      @task = current_user.tasks.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
       # Success
       flash[:success] = "Task updated"
@@ -47,7 +47,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    Task.find(params[:id]).destroy
+    current_user.tasks.find(params[:id]).destroy
     flash[:success] = "Task deleted"
     redirect_to tasks_path
   end

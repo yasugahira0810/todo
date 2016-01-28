@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160116152454) do
+ActiveRecord::Schema.define(version: 20160128162227) do
 
   create_table "tasks", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20160116152454) do
     t.integer  "status",     default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id"
   end
 
   add_index "tasks", ["created_at"], name: "index_tasks_on_created_at"
   add_index "tasks", ["status"], name: "index_tasks_on_status"
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -32,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160116152454) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.boolean  "admin",           default: false
+    t.integer  "task_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["task_id"], name: "index_users_on_task_id"
 
 end
