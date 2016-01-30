@@ -1,7 +1,7 @@
 <% provide(:title, 'All tasks') %>
 <h1>All tasks</h1>
 
-<%#= will_paginate %>
+<%= will_paginate @tasks %>
 
 <%= link_to 'New', new_task_path %>
 <table class="table table-bordered">
@@ -20,4 +20,4 @@
   </tbody>
 </table>
 
-<%#= will_paginate %>
+<%= will_paginate @tasks %>
