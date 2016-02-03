@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
     def index
-      @tasks = current_user.tasks.order('created_at DESC').paginate(page: params[:page])
+      @q = current_user.tasks.order('created_at DESC').search(params[:q])
+      @tasks = @q.result(distinct: true).paginate(page: params[:page])
+      #@tasks = current_user.tasks.order('created_at DESC').paginate(page: params[:page])
       if @status = params[:status]
         case @status
         when 'not_yet'

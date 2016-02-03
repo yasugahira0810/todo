@@ -7,12 +7,13 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Status</th>
-      <th>Created Time</th>
+      <th><%= sort_link(@q, :id, 'ID')%></th>
+      <th><%= sort_link(@q, :name, 'Name')%></th>
+      <th><%= sort_link(@q, :content, 'Content')%></th>
+      <th><%= sort_link(@q, :status, 'Status')%></th>
+      <th><%= sort_link(@q, :created_at, 'Created Time')%></th>
       <th>Action</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
