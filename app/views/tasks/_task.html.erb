@@ -1,9 +1,10 @@
+<!--TODO: Find more efficient way to display figures by normal. If there is not class="tasks", figures will display by bold.  -->
 <tr>
-  <th><%= task.id %></th>
-  <th><%= task.name %></th>
-  <th><%= task.content %></th>
-  <th><%= task.status_name %></th>
-  <th><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
-  <th><%= link_to 'Edit', edit_task_path(task) %></th>
+  <th class="tasks"><%= task.id %></th>
+  <th class="tasks"><%= task.name %></th>
+  <th class="tasks"><%= task.content %></th>
+  <th class="tasks"><%= task.status_name %></th>
+  <th class="tasks"><%= task.created_at.strftime('%Y/%m/%d %H:%M:%S') %></th>
+  <th class="tasks"><%= link_to 'Edit', edit_task_path(task) %></th>
   <th><%= link_to "delete", task, method: :delete, class: "btn btn-danger", data: { confirm: "You sure?" } %></th>
 </tr>
